@@ -289,7 +289,7 @@ create_method(MethodName = method(Args, MethodBody), Class_name) :-
     %% Sostituisco il this con una variabile logica (This)
     replace_word(MethodNoThisString, "this", "This", MethodAtom),
     term_to_atom(Method, MethodAtom),
-    %% Carico il metodo in cima per priorità
+    %% Carico il metodo
     assert(Method).
 
 %%% load_methods/2: chiama create_method per ogni metodo presente nella lista    
