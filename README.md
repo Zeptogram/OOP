@@ -1,7 +1,7 @@
 # Introduzione 
 
 Ai tempi di Simula e del primo Smalltalk, molto molto tempo prima di Python, 
-Ruby, Perl e SLDJ, i programmatori Lisp gi`a producevano una pletora di 
+Ruby, Perl e SLDJ, i programmatori Lisp già producevano una pletora di 
 linguaggi object oriented. Il vostro progetto consiste nella costruzione di 
 un’estensione “object oriented” di Common Lisp, chiamata OOΛ, e di 
 un’estensione “object oriented” di Prolog, chiamata OOΠ. 
@@ -11,29 +11,29 @@ un’estensione “object oriented” di Prolog, chiamata OOΠ.
 ## def_class
 
 __SINTASSI:
-def_class ’(’ <class-name> ’,’ <parents> ’,’ <slot-values> ’)’__
+def_class ’(’ class-name ’,’ parents ’,’ slot-values ’)’__
 
 Definisce la struttura di una classe e la memorizza nella 
 "base di conoscenza" di Prolog.
 
-Carica inoltre eventuali metodi in <slot-values>
+Carica inoltre eventuali metodi in slot-values
 
 Utilizziamo un'altra variante di def_class/3 senza 
-metodi dentro <slot-values>
+metodi dentro slot-values
 
 ## create
 
 __SINTASSI:
-create ’(’ <instance-name> ’,’
-<class-name> ’,’
-’[’ [ <slot-name> ’=’ <value>
-[ ’,’ <slot-name> ’=’ <value> ]* ]*
+create ’(’ instance-name ’,’
+class-name ’,’
+’[’ [ slot-name ’=’ value
+[ ’,’ slot-name ’=’ value ]* ]*
 ’]’
 ’)’__
 
 Crea un'istanza dato il nome dell'istanza e della classe
 
-A seconda di che cosa è il primo argomento <instance-name>, 
+A seconda di che cosa è il primo argomento instance-name, 
 il comportamento di create cambia.
 
 Il primo argomento può assumere il valore di simbolo, 
@@ -43,40 +43,40 @@ appena creata
 ## is_class
 
 __SINTASSI:
-is_class ’(’ <class-name> ’)’__
+is_class ’(’ class-name ’)’__
 
-Controlla se <class-name> è il nome di una classe
+Controlla se class-name è il nome di una classe
 
 ## is_instance
 
 __SINTASSI:
-is_instance ’(’ <value> ’)’
-is_instance ’(’ <value> ’,’ <class-name> ’)’__
+is_instance ’(’ value ’)’
+is_instance ’(’ value ’,’ class-name ’)’__
 
-Controlla se l'istanza passata con il nome <class-name> 
+Controlla se l'istanza passata con il nome class-name
 è un'istanza
 
 ## inst
 
 __SINTASSI:
-inst ’(’ <instance-name> ’,’ <instance> ’)’__
+inst ’(’ instance-name ’,’ instance ’)’__
 
 Dato il nome di un'istanza, ritorna la vera e propria istanza
 
 ## slot
 
 __SINTASSI:
-slot ’(’ <instance> ’,’ <slot-name> ’,’ <result> ’)’__
+slot ’(’ instance ’,’ slot-name ’,’ result ’)’__
 
-Estrae da un'istanza con campo <slot-name> il suo valore 
-<result>.
+Estrae da un'istanza con campo slot-name il suo valore 
+result.
 
-Può anche estrarre <result> da classi e parents.
+Può anche estrarre result da classi e parents.
 
 ## slotx
 
 __SINTASSI:
-slotx ’(’ <instance> ’,’ <slot-names> ’,’ <result> ’)’__
+slotx ’(’ instance ’,’ slot-names ’,’ result ’)’__
 
 Estrae il valore da una classe percorrendo una catena di 
 attributi.
@@ -97,7 +97,7 @@ Si occupa di creare e caricare il metodo
 __SINTASSI:
 get_data(Instance, Slot_name, Result)__
 
-Recupera il valore di <slot-name> data un'istanza.
+Recupera il valore di slot-name data un'istanza.
 
 Può essere utilizzato anche su classi.
 
@@ -118,8 +118,8 @@ Data una classe restituisce tutti i suoi genitori e toglie i duplicati
 
 ## parents
 
-__SINTASSI:
-parents([Class | _], Result)__
+SINTASSI:
+parents([Class | _], Result)
 
 Data una classe restituisce tutti i suoi genitori
 
