@@ -1,20 +1,18 @@
------------------------------------------
+# Introduzione 
+
 Ai tempi di Simula e del primo Smalltalk, molto molto tempo prima di Python, 
 Ruby, Perl e SLDJ, i programmatori Lisp gi`a producevano una pletora di 
 linguaggi object oriented. Il vostro progetto consiste nella costruzione di 
 un’estensione “object oriented” di Common Lisp, chiamata OOΛ, e di 
 un’estensione “object oriented” di Prolog, chiamata OOΠ. 
------------------------------------------
-		PRIMITIVE
------------------------------------------
 
-NOME:
-def_class
+# Primitive
 
-SINTASSI:
-def_class ’(’ <class-name> ’,’ <parents> ’,’ <slot-values> ’)’
+## def_class
 
-PARTICOLARI:
+__SINTASSI:
+def_class ’(’ <class-name> ’,’ <parents> ’,’ <slot-values> ’)’__
+
 Definisce la struttura di una classe e la memorizza nella 
 "base di conoscenza" di Prolog.
 
@@ -22,19 +20,17 @@ Carica inoltre eventuali metodi in <slot-values>
 
 Utilizziamo un'altra variante di def_class/3 senza 
 metodi dentro <slot-values>
------------------------------------------
-NOME:
-create
 
-SINTASSI:
+## create
+
+__SINTASSI:
 create ’(’ <instance-name> ’,’
 <class-name> ’,’
 ’[’ [ <slot-name> ’=’ <value>
 [ ’,’ <slot-name> ’=’ <value> ]* ]*
 ’]’
-’)’
+’)’__
 
-PARTICOLARI:
 Crea un'istanza dato il nome dell'istanza e della classe
 
 A seconda di che cosa è il primo argomento <instance-name>, 
@@ -43,175 +39,135 @@ il comportamento di create cambia.
 Il primo argomento può assumere il valore di simbolo, 
 variabile, oppure un termine che unifica con la nuova istanza 
 appena creata
------------------------------------------
-NOME:
-is_class
 
-SINTASSI:
-is_class ’(’ <class-name> ’)’
+## is_class
 
-PARTICOLARI:
+__SINTASSI:
+is_class ’(’ <class-name> ’)’__
+
 Controlla se <class-name> è il nome di una classe
------------------------------------------
-NOME:
-is_instance
 
-SINTASSI:
+## is_instance
+
+__SINTASSI:
 is_instance ’(’ <value> ’)’
-is_instance ’(’ <value> ’,’ <class-name> ’)’
+is_instance ’(’ <value> ’,’ <class-name> ’)’__
 
-PARTICOLARI:
 Controlla se l'istanza passata con il nome <class-name> 
 è un'istanza
------------------------------------------
-NOME:
-inst
 
-SINTASSI:
-inst ’(’ <instance-name> ’,’ <instance> ’)’
+## inst
 
-PARTICOLARI:
+__SINTASSI:
+inst ’(’ <instance-name> ’,’ <instance> ’)’__
+
 Dato il nome di un'istanza, ritorna la vera e propria istanza
------------------------------------------
-NOME:
-slot
 
-SINTASSI:
-slot ’(’ <instance> ’,’ <slot-name> ’,’ <result> ’)’
+## slot
 
-PARTICOLARI:
+__SINTASSI:
+slot ’(’ <instance> ’,’ <slot-name> ’,’ <result> ’)’__
+
 Estrae da un'istanza con campo <slot-name> il suo valore 
 <result>.
 
 Può anche estrarre <result> da classi e parents.
------------------------------------------
-NOME:
-slotx
 
-SINTASSI:
-slotx ’(’ <instance> ’,’ <slot-names> ’,’ <result> ’)’
+## slotx
 
-PARTICOLARI:
+__SINTASSI:
+slotx ’(’ <instance> ’,’ <slot-names> ’,’ <result> ’)’__
+
 Estrae il valore da una classe percorrendo una catena di 
 attributi.
------------------------------------------
-		FUNZIONI
------------------------------------------
 
-NOME:
-create_method
+# Funzioni
 
-SINTASSI:
-create_method(MethodName = method(Args, MethodBody), Class_name)
 
-PARTICOLARI:
+## create_method
+
+__SINTASSI:
+create_method(MethodName = method(Args, MethodBody), Class_name)__
+
 Si occupa di creare e caricare il metodo
------------------------------------------
-NOME:
-get_data
 
-SINTASSI:
-get_data(Instance, Slot_name, Result)
 
-PARTICOLARI:
+## get_data
+
+__SINTASSI:
+get_data(Instance, Slot_name, Result)__
+
 Recupera il valore di <slot-name> data un'istanza.
 
 Può essere utilizzato anche su classi.
------------------------------------------
-NOME:
-load_methods
 
-SINTASSI:
-load_methods([Method | Rest], Class_name)
+## load_methods
 
-PARTICOLARI:
+__SINTASSI:
+load_methods([Method | Rest], Class_name)__
+
 Chiama create_method per ogni metodo presente nella lista
------------------------------------------
-NOME:
-get_parents
 
-SINTASSI:
-get_parents(Class, Result)
 
-PARTICOLARI:
+## get_parents
+
+__SINTASSI:
+get_parents(Class, Result)__
+
 Data una classe restituisce tutti i suoi genitori e toglie i duplicati
------------------------------------------
-NOME:
-parents
 
-SINTASSI:
-parents([Class | _], Result)
+## parents
 
-PARTICOLARI:
+__SINTASSI:
+parents([Class | _], Result)__
+
 Data una classe restituisce tutti i suoi genitori
------------------------------------------
-	PREDICATI UTILI
------------------------------------------
 
-NOME:
-remove_duplicates
+# Predicati Utili
 
-PARTICOLARI:
+## remove_duplicates
+
 Data in input una lista con duplicati, li rimuove dalla lista
------------------------------------------
-NOME:
-first
 
-PARTICOLARI:
+## first
+
 Data in input una lista, restituisce il primo elemento
------------------------------------------
-NOME:
-tail
 
-PARTICOLARI:
+## tail
+
 Data in input una lista, restituisce la tail
------------------------------------------
-NOME:
-second
 
-PARTICOLARI:
+## second
+
 Data in input una lista, restituisce il secondo elemento
------------------------------------------
-NOME:
-fourth
 
-PARTICOLARI:
+## fourth
+
 Data in input una lista, restituisce il quarto elemento
------------------------------------------
-NOME:
-penultimo
 
-PARTICOLARI:
+## penultimo
+
 Data in input una lista, restituisce il penultimo elemento
------------------------------------------
-NOME:
-one
 
-PARTICOLARI:
+## one
+
 Data in input una lista controlla se è composta da un solo elemento
------------------------------------------
-NOME:
-is_empty
 
-PARTICOLARI:
+## is_empty
+
 Data in input una lista, restituisce true se è vuota
------------------------------------------
-NOME:
-replace_word
 
-PARTICOLARI:
+## replace_word
+
 Data in input una stringa, una parola da sostituire e la nuova parola, 
 restituisce la stringa con la parola sostituita
------------------------------------------
-NOME:
-replace_ennesima_parola
 
-PARTICOLARI:
+## replace_ennesima_parola
+
 Data in input una stringa, l'occorrenza della parola, una parola da sostituire e la nuova parola, 
 restituisce la stringa con la parola sostituita all'occorrenza specificata
------------------------------------------
-	ALCUNI TEST EFFETTUATI
------------------------------------------
+
+# Alcuni Test Effettuati
 
 def_class(person, [], [name = 'Eve', age = undefined]).
 true.
@@ -270,7 +226,8 @@ Test metodo instanza, my name Eva Lu Ator
 My age is undefined
 true.
 
------------------------------------------
-ENG: This is an italian project
------------------------------------------
-EOF
+# Autori e Info
+
+ENG: This is an italian project, Doc and comments in italian. Grade: 28/30
+
+Made by Elio Gargiulo, Stefano Rigato for UNIMIB Linguaggi di Programmazione Course.
